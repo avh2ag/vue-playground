@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <h1 class="title">Sample Datatables App</h1>
+    <BulmaDataTable />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BulmaDataTable from './components/BulmaDataTable.vue';
+import { provide } from 'vue';
+import DataService from './services/DataService.js';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    BulmaDataTable
+  },
+  setup() {
+    provide('dataService', new DataService());
+    return {};
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "../node_modules/bulma/css/bulma.css";
 </style>
